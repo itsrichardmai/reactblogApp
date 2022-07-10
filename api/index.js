@@ -18,18 +18,18 @@ mongoose.connect(process.env.MONGO_URL, {
 .catch((err)=> console.log(err)) ;
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
-  },
-});
-
-const upload = multer({ storage: storage });
-app.post("/api/upload", upload.single("file"), (req, res) => {
-  res.status(200).json("File has been uploaded");
-});
+    destination: (req, file, cb) => {
+      cb(null, "images");
+    },
+    filename: (req, file, cb) => {
+      cb(null, "Hello.jpeg");
+    },
+  });
+  
+  const upload = multer({ storage: storage });
+  app.post("/api/upload", upload.single("file"), (req, res) => {
+    res.status(200).json("File has been uploaded");
+  });
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
@@ -39,5 +39,3 @@ app.use("/api/categories", categoryRoute);
 app.listen("5000", () => {
     console.log("Server is running on port:5000");
 })
-
-
