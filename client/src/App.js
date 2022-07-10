@@ -6,30 +6,33 @@ import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {useContext} from "react";
+import {Context} from "./context/Context";
+
 
 function App() {
-  const currentUser = true;
+  const {user} = useContext(Context);
   return (
     <BrowserRouter>
       <Topbar />
       <Routes>
-        <Route exact path="/" element={currentUser? <Homepage/> : <Login/>}>
+        <Route exact path="/" element={user? <Homepage/> : <Login/>}>
         </Route>
         <Route path="/posts"element={<Homepage/>}>
         </Route>
-        <Route path="/register" element={currentUser?<Homepage/>: <Register/>}>
-          {/* {currentUser ? <Homepage /> : <Register />} */}
+        <Route path="/register" element={user?<Homepage/>: <Register/>}>
+   
         </Route>
-        <Route path="/login" element={currentUser?<Homepage/>: <Login/>}>
-          {/* {currentUser ? <Homepage /> : <Login />} */}
+        <Route path="/login" element={user?<Homepage/>: <Login/>}>
+
           </Route>
         <Route path="/post/:id" element={<Single />}>
         </Route>
-        <Route path="/write" element={currentUser?<Write/>:<Login/>}>
-          {/* {currentUser ? <Write /> : <Login />} */}
+        <Route path="/write" element={user?<Write/>:<Login/>}>
+         
           </Route>
-        <Route path="/settings" element={currentUser?<Settings/>:<Login/>}>
-          {/* {currentUser ? <Settings /> : <Login />} */}
+        <Route path="/settings" element={user?<Settings/>:<Login/>}>
+     
         </Route>
       </Routes>
     </BrowserRouter>
