@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
-import Select from 'react-select'
+// import Select from "react-select"
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -10,26 +10,26 @@ export default function Write() {
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
   const [categories, setCats] = useState();
-  const options = [
-  {
-    value: 'Fashion', label: 'Fashion'
-  },
-  {
-    value: 'Pets', label: 'Pets'
-  },
-  {
-    value: 'Monsters', label: 'Monsters'
-  },
-  {
-    value:  'Food', label: 'Food'
-  },
-  {
-    value: 'Gallery', label: 'Gallery'
-  },
-  {
-    value: 'Memories', label: 'Memories'
-  },
-];
+//   const options = [
+//   {
+//     value: 'Fashion', label: 'Fashion'
+//   },
+//   {
+//     value: 'Pets', label: 'Pets'
+//   },
+//   {
+//     value: 'Monsters', label: 'Monsters'
+//   },
+//   {
+//     value:  'Food', label: 'Food'
+//   },
+//   {
+//     value: 'Gallery', label: 'Gallery'
+//   },
+//   {
+//     value: 'Memories', label: 'Memories'
+//   },
+// ];
 
 
   const handleSubmit = async (e) => {
@@ -81,11 +81,24 @@ export default function Write() {
             onChange={e=>setTitle(e.target.value)}
           />
           <form>     
-              <Select options={options}
+              {/* <Select options={options}
               onChange={(e)=>
                 setCats(e.value)
                 }/>
-            
+             */}
+             <select id="categories"
+             placeholder="Category"
+             className="form-select"
+             onChange={(e)=>{
+              setCats(e.value)
+             }}>
+              <option value="Fashion">Fashion</option>
+              <option value="Pets">Pets</option>
+              <option value="Monsters">Monsters</option>
+              <option value="Food">Food</option>
+              <option value="Gallery">Gallery</option>
+              <option value="Memories">Memories</option>
+             </select>
             </form>
         </div>
         <div className="writeFormGroup">
