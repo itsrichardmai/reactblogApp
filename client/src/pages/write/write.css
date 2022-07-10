@@ -39,7 +39,10 @@ position: relative;
     padding: 20px;
     width: 70vw;
 }
-
+.formSelect {
+    height:30px;
+    width: 100px;
+}
 .writeInput:focus {
     outline: none;
 }

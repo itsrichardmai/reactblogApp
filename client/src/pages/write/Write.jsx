@@ -9,7 +9,9 @@ export default function Write() {
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
-  const [categories, setCats] = useState();
+
+  const [categories, setCats] = useState("");
+
 //   const options = [
 //   {
 //     value: 'Fashion', label: 'Fashion'
@@ -39,7 +41,6 @@ export default function Write() {
       title,
       desc,
       categories,
-
     };
     console.log(newPost);
     if (file) {
@@ -88,10 +89,19 @@ export default function Write() {
              */}
              <select id="categories"
              placeholder="Category"
-             className="form-select"
-             onChange={(e)=>{
-              setCats(e.value)
-             }}>
+             className="formSelect"
+            //  onChange={(e)=>{
+            //   // setCats(e.value)
+            //   console.log(e.value)
+            //  }}
+           onChange={(e)=>{
+            e = document.getElementById('categories');
+            let value = e.options[e.selectedIndex].value;
+            console.log("Category value is " + e.value)
+            setCats(e.value);
+           }}
+             >
+              <option value="" disabled selected hidden>Category</option>
               <option value="Fashion">Fashion</option>
               <option value="Pets">Pets</option>
               <option value="Monsters">Monsters</option>

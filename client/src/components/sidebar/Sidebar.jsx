@@ -18,12 +18,15 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT ME</span>
         <img
-          src="https://i.pinimg.com/236x/1e/3f/58/1e3f587572a7a7b20bbf1828595a1786--holiday-party-themes-holiday-gift-guide.jpg"
+          src="http://localhost:5000/images/1657332043259profilepic.jpeg"
           alt=""
         />
+        <p className="sidebarTitle">
+        🤍 Teagan Alyse Higley 🖤
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+        My one and only love of my life. I've never wanted more than I have after meeting you.
+        You motivate me to strive for greater heights and tougher feats. When I am with you, I feel an abundance of joy and love. I hope that we will last forever and so will our memories.
+        </p>
         </p>
       </div>
       <div className="sidebarItem">
